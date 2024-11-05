@@ -1,0 +1,6 @@
+# .gitignore (Raiz)
+.DS_Store
+.env
+.idea
+.vscode
+*.log
