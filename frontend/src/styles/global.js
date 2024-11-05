@@ -9,7 +9,6 @@ const Global = createGlobalStyle`
   }
   
   body {
-    margin-top: 5%;
     background-color: #f2f2f2;
   }
 `;
