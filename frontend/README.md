@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# Sistema de Lista de Tarefas - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é o frontend do sistema de lista de tarefas, uma aplicação web desenvolvida em React que consome a API do backend para gerenciar as tarefas de forma interativa e intuitiva. A interface foi projetada para ser fácil de usar e atender aos requisitos funcionais especificados.
 
-## Available Scripts
+## Tecnologias Utilizadas
 
-In the project directory, you can run:
+Este projeto foi construído usando as seguintes tecnologias e bibliotecas:
 
-### `npm start`
+- **React**: Framework JavaScript para construção de interfaces de usuário reativas.
+- **react-toastify**: Biblioteca para exibir notificações elegantes e configuráveis.
+- **axios**: Cliente HTTP usado para realizar requisições à API, facilitando o consumo de dados do backend.
+- **dnd-kit**: Biblioteca para implementar funcionalidades de drag-and-drop, usada para reordenar as tarefas.
+- **react-icons**: Conjunto de ícones para representar visualmente ações, como editar e excluir.
+- **lodash**: Biblioteca utilitária para manipulação e tratamento de dados.
+- **styled-components**: Biblioteca para estilização dos componentes usando CSS-in-JS, permitindo maior flexibilidade e organização.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Estrutura de Pastas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Para facilitar a organização e manutenção do código, a estrutura de pastas foi organizada da seguinte forma:
 
-### `npm test`
+```
+frontend/
+└── src/
+    ├── components/
+    │   ├── TaskStats/         # Indicadores das tarefas
+    │   ├── SearchBar/         # Barra de busca com atualização dinâmica
+    │   ├── Grid/              # Listagem e exibição das tarefas
+    │   └── Form/              # Formulário para adição e edição de tarefas
+    ├── styles/
+    │   └── global.js          # Estilos globais (fonte e cor de fundo)
+    ├── App.js                 # Componente principal da aplicação
+    └── index.js               # Arquivo de entrada
+```
+## Como Executar o Projeto
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para executar a aplicação localmente, siga as instruções abaixo:
 
-### `npm run build`
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/diogomasc/task-management-system-psfatto.git
+   cd frontend
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Inicie a aplicação:
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Acesse a aplicação no navegador em [http://localhost:3000](http://localhost:3000).
 
-### `npm run eject`
+## Funcionalidades
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Lista de Tarefas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A página principal da aplicação exibe a lista de tarefas cadastradas. Cada tarefa mostra todas as informações, exceto a "Ordem de apresentação", e é organizada com base nesse campo. Para maior clareza, as tarefas com "Custo" igual ou superior a R$1.000,00 são destacadas com um fundo amarelo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Ao lado de cada tarefa, há ícones de **Editar** e **Excluir** para facilitar o gerenciamento. No canto inferior direito, você encontra o botão de **Incluir**, que abre um modal centralizado para adicionar uma nova tarefa.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](https://github.com/user-attachments/assets/87716a81-8a96-44d7-86a2-10a04b40a6ba)
 
-## Learn More
+### Excluir Tarefa
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A funcionalidade de exclusão permite ao usuário remover uma tarefa da lista. Ao clicar no ícone de excluir, um popup de confirmação é exibido no topo da tela, solicitando a confirmação da ação.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Se a exclusão for realizada com sucesso, uma notificação de feedback é exibida no canto inferior esquerdo.
 
-### Code Splitting
+![image](https://github.com/user-attachments/assets/5d96eda2-cc44-4833-9bda-7ab2c2011cdc)
+![image](https://github.com/user-attachments/assets/88b1d565-6eee-4cb3-a663-bdfc079bb92f)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Editar Tarefa
 
-### Analyzing the Bundle Size
+O sistema permite que o usuário edite as informações de "Nome da Tarefa", "Custo" e "Data Limite". Ao tentar salvar as alterações, o sistema verifica se o novo nome já existe. Caso o nome já esteja em uso, uma notificação de erro é exibida. Se o nome for único, a tarefa é atualizada, e uma notificação de sucesso é exibida.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![image](https://github.com/user-attachments/assets/27af868b-63dd-4cb0-b319-890cdef8cf69)
+![image](https://github.com/user-attachments/assets/d615707c-d6d5-4a8c-a037-ac841c0cf2b1)
 
-### Making a Progressive Web App
+### Incluir Nova Tarefa
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Para incluir uma nova tarefa, o usuário preenche um formulário com "Nome da Tarefa", "Custo" e "Data Limite". Todos os campos são validados, e uma notificação é exibida em caso de erro ou sucesso.
 
-### Advanced Configuration
+As notificações de sucesso e erro aparecem automaticamente no canto inferior esquerdo da tela.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![image](https://github.com/user-attachments/assets/6c63f246-98e9-4dfe-9855-cd4d2244287e)
+![image](https://github.com/user-attachments/assets/63798058-503d-4b40-b40c-d69679be5722)
 
-### Deployment
+### Reordenação das Tarefas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+A interface permite que o usuário reordene as tarefas de duas maneiras:
 
-### `npm run build` fails to minify
+1. **Drag-and-Drop**: O usuário pode arrastar e soltar as tarefas na posição desejada.
+2. **Botões de Reordenação**: Cada tarefa possui botões para mover a tarefa para cima ou para baixo na ordem de exibição. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Caso uma tarefa não possa ser movida (por estar na primeira ou última posição), uma notificação informa essa condição.
+
+![screencast-localhost_3000-2024_11_05-13_15_20](https://github.com/user-attachments/assets/7e562bf1-2e74-489c-90de-2484b6252209)
+
+### Barra de Busca
+
+A barra de busca atualiza os resultados conforme o usuário digita, implementando uma busca indexada que exibe os resultados em tempo real. Isso permite que o usuário encontre rapidamente as tarefas desejadas.
+
+![image](https://github.com/user-attachments/assets/f15d006c-252d-4663-a4c2-98f3eb67ad4e)
+
+### Indicadores de Tarefas
+
+Na aplicação, o usuário encontra um painel com informações de contagem:
+
+- Total de tarefas cadastradas.
+- Quantidade de tarefas com custo igual ou superior a R$1.000,00.
+
+No formulário, um contador de caracteres é exibido no campo "Nome da Tarefa".
+
+### Estilização e Destaques Visuais
+
+A aplicação utiliza `styled-components` para definir estilos globais (como fonte e cor de fundo) e estilos específicos para cada componente. Ícones e campos são destacados visualmente para melhorar a usabilidade.
+
+## Notificações
+
+Todas as notificações (de erro, sucesso e validação) são exibidas usando o `react-toastify`. Elas surgem no canto inferior esquerdo da tela e desaparecem automaticamente após 3 segundos, proporcionando feedback imediato ao usuário.
