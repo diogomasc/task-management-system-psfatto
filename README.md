@@ -1,4 +1,36 @@
-# Task Management System | Processo Seletivo Fatto Consultoria e Sistemas 2024
+<div align="center">
+  <h1>Task Management System</h1>
+  <h3>Processo Seletivo Fatto Consultoria e Sistemas 2024</h3>
+
+  <a href="https://github.com/topics/react">
+    <img src="https://img.shields.io/badge/Frontend-React-61dafb.svg" alt="React">
+  </a>
+  <a href="https://github.com/topics/nodejs">
+    <img src="https://img.shields.io/badge/Backend-Node.js-339933.svg" alt="Node.js">
+  </a>
+  <a href="https://github.com/topics/mysql">
+    <img src="https://img.shields.io/badge/Database-MySQL-4479A1.svg" alt="MySQL">
+  </a>
+  <a href="https://github.com/topics/javascript">
+    <img src="https://img.shields.io/badge/Language-JavaScript-3178C6.svg" alt="JavaScript">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
+  </a>
+  <br>
+  <a href="https://www.linkedin.com/in/diogomasc/">
+    <img src="https://img.shields.io/badge/LinkedIn-Diogo_Mascarenhas-0077B5.svg" alt="LinkedIn">
+  </a>
+</div>
+
+## 📑 Documentação
+
+### <a href="./frontend/README.md"><img src="https://img.shields.io/badge/Frontend-Documentation-61dafb.svg" alt="Frontend Docs"/></a> 
+Contém o código React, incluindo componentes de listagem, busca, formulários e notificações.
+
+### <a href="./backend/README.md"><img src="https://img.shields.io/badge/Backend-Documentation-339933.svg" alt="Backend Docs"/></a>
+Contém o código Node.js e Express para gerenciamento das APIs REST e integração com o banco MySQL. Documentação completa das rotas.
+
 
 ## Descrição
 
@@ -18,13 +50,6 @@ Este é um sistema web para gerenciamento de tarefas, desenvolvido utilizando Re
 - **Validação de Dados**: Verificação de duplicidade no nome da tarefa e obrigatoriedade dos campos.
 - **Interface Responsiva**: Adaptada para diversos dispositivos, mantendo a usabilidade.
 - **Destaque Visual para Tarefas com Custo Elevado**: Tarefas com custo ≥ R$1.000,00 têm fundo amarelo para fácil identificação.
-
-## Estrutura do Projeto
-
-O projeto é dividido em duas pastas principais, cada uma com seu próprio `README.md` para detalhes específicos de implementação:
-
-- **Frontend** (`frontend/`): Contém o código React, incluindo componentes de listagem, busca, formulários e notificações. Documentação adicional no `README.md` da pasta.
-- **Backend** (`backend/`): Contém o código Node.js e Express para gerenciamento das APIs REST e integração com o banco MySQL. Documentação completa das rotas e requisitos no `README.md` da pasta.
 
 Para obter mais informações sobre cada parte do sistema, consulte os `README.md` dentro de cada diretório.
 
@@ -47,7 +72,7 @@ Para obter mais informações sobre cada parte do sistema, consulte os `README.m
      ```bash
      npm install
      ```
-   - Configure o banco de dados MySQL, criando um banco de dados conforme as instruções no `README.md` do backend.
+   - Configure o banco de dados MySQL, criando um banco de dados conforme as instruções no [README.md do backend](./backend/README.md).
    - Inicie o servidor:
      ```bash
      npm start
