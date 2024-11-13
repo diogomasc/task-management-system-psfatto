@@ -60,8 +60,6 @@ A API utiliza os seguintes códigos de status HTTP:
 
 Abra seu cliente MySQL e execute os seguintes comandos na ordem:
 
-````sql
-
 ```sql
 -- Altere o tipo de autenticação do usuário root
 ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'SUA_SENHA';
@@ -77,14 +75,7 @@ CREATE DATABASE crud_tasks;
 USE crud_tasks;
 
 -- Crie a tabela tasks
--- Crie a tabela tasks
 CREATE TABLE tasks (
-    id INT NOT NULL AUTO_INCREMENT,
-    display_order INT NOT NULL UNIQUE,
-    description VARCHAR(100) NOT NULL UNIQUE,
-    value DECIMAL(10,2) NOT NULL,
-    deadline DATE NOT NULL,
-    PRIMARY KEY (id)
     id INT NOT NULL AUTO_INCREMENT,
     display_order INT NOT NULL UNIQUE,
     description VARCHAR(100) NOT NULL UNIQUE,
@@ -105,19 +96,10 @@ VALUES (2, 'Segunda Tarefa', 1200.00, '2024-12-15');
 
 -- Verifique os dados inseridos
 SELECT * FROM tasks;
-````
+```
 
 ### Configuração do Arquivo de Conexão
 
-SELECT \* FROM tasks;
-
-````
-
-### Configuração do Arquivo de Conexão
-
-Navegue até a pasta `backend/db.js` e atualize as credenciais do MySQL conforme sua configuração:
-
-```javascript
 Navegue até a pasta `backend/db.js` e atualize as credenciais do MySQL conforme sua configuração:
 
 ```javascript
@@ -127,7 +109,7 @@ export const db = mysql.createConnection({
   password: "SUA_SENHA",
   database: "crud_tasks",
 });
-````
+```
 
 ### Instalação e Execução
 
@@ -171,8 +153,10 @@ export const db = mysql.createConnection({
   2.  Insira a URL: `http://localhost:8800/`.
   3.  Vá até a aba Body, selecione raw e escolha JSON no menu suspenso.
   4.  Cole o JSON acima.
-
-![image](https://github.com/user-attachments/assets/4c6d08ed-df8f-42d8-9dd3-dcf02c8cb354)
+ 
+Exemplo:
+   
+![image](https://github.com/user-attachments/assets/63cb9c4e-136e-4e07-877a-0be61292b5fb)
 
 ### 2. Listar Tarefas (GET /)
 
@@ -181,7 +165,9 @@ export const db = mysql.createConnection({
   1.  Selecione o método `GET`.
   2.  Insira a URL: `http://localhost:8800/`.
 
-![image](https://github.com/user-attachments/assets/c33b9ec3-e9ed-4f9c-b962-14d65fcdc7ab)
+Exemplo:
+
+![image](https://github.com/user-attachments/assets/63aa03bf-679f-44c6-81b1-42a5e4b6b69c)
 
 ### 3. Atualizar Tarefa (PUT /:id)
 
@@ -200,9 +186,9 @@ export const db = mysql.createConnection({
   3.  Vá até a aba Body, selecione raw e escolha JSON no menu suspenso.
   4.  Cole o JSON acima.
 
-![image](https://github.com/user-attachments/assets/4e0cafc8-66dd-46fe-9b90-0f9ac2f82bb5)
+Exemplo:
 
-![image](https://github.com/user-attachments/assets/dd1e3691-bbba-4d92-86ab-676e5b4a92d0)
+![image](https://github.com/user-attachments/assets/2fc74610-54d4-4732-aa00-4958df6a6ef8)
 
 ### 4. Atualizar Ordem (PUT /:id/order)
 
@@ -219,9 +205,12 @@ export const db = mysql.createConnection({
   3.  Vá até a aba Body, selecione raw e escolha JSON no menu suspenso.
   4.  Cole o JSON acima.
 
-![image](https://github.com/user-attachments/assets/dfddaedf-48f5-4e1a-a0f5-403f665305ee)
+Exemplos: 
 
-![image](https://github.com/user-attachments/assets/c1030022-cd36-406b-a8d5-179c8983baa6)
+![image](https://github.com/user-attachments/assets/3e07294d-ef0b-4c66-b221-f7f1c3fdb16b)
+
+![image](https://github.com/user-attachments/assets/d77bd8c8-f1f7-4289-bc64-517370d1bef4)
+
 
 ### 5. Deletar Tarefa (DELETE /:id)
 
@@ -229,10 +218,12 @@ export const db = mysql.createConnection({
 - **Como testar no Postman**:
   1.  Selecione o método `DELETE`.
   2.  Insira a URL: `http://localhost:8800/:id` (substitua `:id` pelo ID da tarefa que deseja deletar).
+ 
+Exemplo:
 
-![image](https://github.com/user-attachments/assets/d965d08b-f264-49f7-ae49-883271d05c6e)
+![image](https://github.com/user-attachments/assets/27ca877e-c8bb-4000-9934-12770a0fcf8f)
 
-![image](https://github.com/user-attachments/assets/984aa244-9545-45dd-91cf-77bc38b82fa4)
+![image](https://github.com/user-attachments/assets/4e105771-7a34-4d6e-a2fd-80f82f37d92f)
 
 ### 6. Pesquisar Tarefas (GET /search?searchTerm=palavra)
 
@@ -241,7 +232,9 @@ export const db = mysql.createConnection({
   1.  Selecione o método `GET`.
   2.  Insira a URL: `http://localhost:8800/search?searchTerm=palavra` (substitua `palavra` pelo termo que deseja buscar).
 
-![image](https://github.com/user-attachments/assets/dfe18e5b-689f-489f-809f-3d97f4f9534f)
+Exemplo:
+
+![image](https://github.com/user-attachments/assets/d60e8b85-7ccc-4889-8688-90089a581a5b)
 
 ### 7. Contar Tarefas (GET /count)
 
@@ -249,8 +242,10 @@ export const db = mysql.createConnection({
 - **Como testar no Postman**:
   1.  Selecione o método `GET`.
   2.  Insira a URL: `http://localhost:8800/count`.
+ 
+Exemplo:
 
-![image](https://github.com/user-attachments/assets/65dd9f5a-cc23-4d82-b012-aa7d09599f81)
+![image](https://github.com/user-attachments/assets/02774447-418d-451d-8a3f-5ddb5dc4c2ac)
 
 ## Respostas da API
 
@@ -275,5 +270,4 @@ export const db = mysql.createConnection({
 
 ## Autor
 
-Desenvolvido por Diogo Mascarenhas.
-LinkedIn: [Perfil no LinkedIn](https://www.linkedin.com/in/diogomasc/)
+Desenvolvido por Diogo Mascarenhas. [Perfil no LinkedIn](https://www.linkedin.com/in/diogomasc/)
